@@ -16,7 +16,7 @@ class FeedViewController: UIViewController {
     }
     
     var post = Post(title: "MyPost")
-    
+
     func postButton() {
         let button = UIButton(frame: CGRect.init(x: 95, y: 200, width: 300, height: 80))
         button.setTitleColor(.white, for: .normal)

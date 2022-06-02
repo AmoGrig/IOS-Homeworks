@@ -14,7 +14,16 @@ class PostViewController: UIViewController {
         
         self.title = titlePost
         self.view.backgroundColor = .lightGray
+        
+        var myBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfoViewController))
+        navigationItem.rightBarButtonItem = myBarButton
 
+    }
+    
+    @objc func openInfoViewController() {
+        let infoVC = InfoViewController()
+        infoVC.title = "Info"
+        present(infoVC, animated: true)
     }
     
     var titlePost: String = "NoPostTitle"
