@@ -15,6 +15,7 @@ class ProfileHeaderView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Aram")
         imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor
         imageView.layer.borderWidth = 3
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -60,6 +61,16 @@ class ProfileHeaderView: UIView {
         return statusButton
     }()
     
+//    private lazy var bottomButton: UIButton = {
+//        let bottomButton = UIButton()
+//        bottomButton.setTitle("Bottom Button", for: .normal)
+//        bottomButton.backgroundColor = .systemPurple
+//        bottomButton.layer.cornerRadius = 15
+//        bottomButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return bottomButton
+//    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         self.setupView()
@@ -87,6 +98,8 @@ class ProfileHeaderView: UIView {
         self.verticalStack.addArrangedSubview(self.statusLabel)
         self.addSubview(statusButton)
         
+//        self.addSubview(bottomButton)
+        
         NSLayoutConstraint.activate([
             self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
             self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
@@ -101,7 +114,11 @@ class ProfileHeaderView: UIView {
             self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
             self.statusButton.leadingAnchor.constraint(equalTo: self.avatarImageView.leadingAnchor),
             self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.statusButton.heightAnchor.constraint(equalToConstant: 50)
+            self.statusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+//            self.bottomButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+//            self.bottomButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+//            self.bottomButton.bottomAnchor.constraint(equalTo: )
         ])
     }
 
