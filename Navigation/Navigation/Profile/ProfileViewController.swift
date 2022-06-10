@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     
     private lazy var button: UIButton = {
         let button = UIButton()
-        button.setTitle("Bottom Botton", for: .normal)
+        button.setTitle("Bottom Button", for: .normal)
         button.backgroundColor = .systemPurple
         button.layer.cornerRadius =  15
         button.translatesAutoresizingMaskIntoConstraints = false

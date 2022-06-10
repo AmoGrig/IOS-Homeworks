@@ -23,9 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
-        UITabBar.appearance().backgroundColor = .systemOrange
+        UITabBar.appearance().backgroundColor = .systemGray5
         UITabBar.appearance().tintColor = .black
-//        UIBarButtonItem.appearance().tintColor = .black
         
         tabBarController.viewControllers = [createFeedViewController(), createProfileViewController()]
         
@@ -35,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createFeedViewController() -> UINavigationController {
         let feedViewController = FeedViewController()
         feedViewController.title = "Feed"
-        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "doc.richtext"), tag: 0)
+        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house.fill"), tag: 0)
         
         
         return UINavigationController(rootViewController: feedViewController)
@@ -44,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createProfileViewController() -> UINavigationController {
         let profileViewController = ProfileViewController()
         profileViewController.title = "Profile"
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
+        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
         
         return UINavigationController(rootViewController: profileViewController)
     }
