@@ -15,6 +15,7 @@ class ProfileHeaderView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Aram")
         imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor
         imageView.layer.borderWidth = 3
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -88,7 +89,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(statusButton)
         
         NSLayoutConstraint.activate([
-            self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
+            self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             self.avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             self.avatarImageView.heightAnchor.constraint(equalToConstant: 100),
@@ -96,7 +97,7 @@ class ProfileHeaderView: UIView {
             self.verticalStack.topAnchor.constraint(equalTo: self.avatarImageView.topAnchor),
             self.verticalStack.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 20),
             self.verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.verticalStack.bottomAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor),
+            self.verticalStack.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
             
             self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
             self.statusButton.leadingAnchor.constraint(equalTo: self.avatarImageView.leadingAnchor),
