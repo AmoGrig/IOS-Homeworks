@@ -8,9 +8,6 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
-    
-    
-
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Aram")

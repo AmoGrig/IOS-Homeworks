@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().backgroundColor = .systemGray5
         UITabBar.appearance().tintColor = .black
         
-        tabBarController.viewControllers = [createFeedViewController(), createProfileViewController()]
+        tabBarController.viewControllers = [createFeedViewController(), createLoginViewController()]
         
         return tabBarController
     }
@@ -40,12 +40,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: feedViewController)
     }
     
-    func createProfileViewController() -> UINavigationController {
-        let profileViewController = LogInViewController()
-        profileViewController.title = "Profile"
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
+    func createLoginViewController() -> UINavigationController {
+        let loginViewController = LogInViewController()
+        loginViewController.title = "Profile"
+        loginViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
         
-        return UINavigationController(rootViewController: profileViewController)
+        return UINavigationController(rootViewController: loginViewController)
     }
     
 

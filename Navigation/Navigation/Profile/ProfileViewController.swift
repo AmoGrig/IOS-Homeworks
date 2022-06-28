@@ -9,13 +9,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     private lazy var tableView: UITableView = {
-        
         let tableView: UITableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(StaticPostsTableViewCell.self, forCellReuseIdentifier: "StaticCell")
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
         tableView.backgroundColor = .systemGray4
+        
         return tableView
     }()
     
@@ -31,6 +32,11 @@ class ProfileViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     struct Mock {
@@ -54,33 +60,54 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        if section == 0 {
+            return 1
+        } else {
+           return posts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StaticCell", for: indexPath) as? StaticPostsTableViewCell else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            return cell
-        }
-        
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "StaticCell", for: indexPath) as! StaticPostsTableViewCell
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
+       
         let post = self.posts[indexPath.row]
-        cell.setup(with: post)
-        return cell
+        cell2.setup(with: post)
+        
+        if indexPath.section == 0 {
+            return cell1
+        } else {
+            return cell2
+        }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        250
-        UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated:true)
+        let vc = PhotosCollectionViewController()
+        vc.navBarTitle = "Photo Gallery"
+        indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = ProfileHeaderView()
-
-        return view
+        
+        if section == 0 {
+            return view
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        210
+        if section == 0 {
+            return 210
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }
