@@ -83,7 +83,7 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		243392A4284B604000FC2B7E /* Profile */ = {
+		243392A4284B604000FC2B7E /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
 				243392A5284B615700FC2B7E /* ProfileHeaderView.swift */,
@@ -91,7 +91,7 @@
 				243392A7284B61AC00FC2B7E /* ProfileViewController.swift */,
 				2476C8502869B87200C19DF8 /* PhotosCollectionViewController.swift */,
 			);
-			path = Profile;
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		24634CE728411F85007A6198 = {
@@ -120,7 +120,7 @@
 				2492FD952844BC6900B22499 /* PostViewController.swift */,
 				24137B01284764BF00AA21AF /* InfoViewController.swift */,
 				24F5D72A28462C2D00DAC2AB /* Post.swift */,
-				243392A4284B604000FC2B7E /* Profile */,
+				243392A4284B604000FC2B7E /* ProfileViewController */,
 				2417DF84286B3E2800B83479 /* ViewCell */,
 				2417DF85286B3EB400B83479 /* Data */,
 				24634CFE28411F85007A6198 /* LaunchScreen.storyboard */,
