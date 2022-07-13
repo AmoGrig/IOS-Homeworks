@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ProfileViewController1: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-    }
-    
-}
+//class ProfileViewController1: UIViewController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.view.backgroundColor = .white
+//    }
+//    
+//}
