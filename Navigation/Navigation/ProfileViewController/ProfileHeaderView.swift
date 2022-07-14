@@ -58,9 +58,28 @@ class ProfileHeaderView: UIView {
         return statusButton
     }()
     
+    var cancelButton: UIButton = {
+        var button = UIButton(type: .roundedRect)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "clear.fill"), for: .normal)
+        button.alpha = 0
+        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        return button
+    }()
+    
+    private var imageTopConstraint: NSLayoutConstraint?
+    private var imageLeadingConstraint: NSLayoutConstraint?
+    private var imageHeightConstraint: NSLayoutConstraint?
+    private var imageWidthConstraint: NSLayoutConstraint?
+    
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    private var isExpanded = false
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         self.setupView()
+        self.setupGestures()
+        self.setupConstraint()
     }
     
     required init?(coder: NSCoder) {
@@ -78,12 +97,44 @@ class ProfileHeaderView: UIView {
         }
     }
     
+    @objc func tapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
+        guard self.tapGestureRecognizer === gestureRecognizer else { return }
+        
+        self.isExpanded.toggle()
+        
+        self.imageTopConstraint?.constant = self.isExpanded ? center.x : 16
+        self.imageWidthConstraint?.constant = self.isExpanded ? frame.width : 120
+        self.imageHeightConstraint?.constant = self.isExpanded ? frame.width : 120
+        self.avatarImageView.layer.cornerRadius = self.isExpanded ? 0 : 50
+        
+        UIView.animate(withDuration: 0.5) {
+            self.layoutIfNeeded() }
+    completion: { _ in
+
+    }
+        UIView.animate(withDuration: 0.3, delay: 0.5) {
+            self.cancelButton.alpha = self.isExpanded ? 0.5 : 0
+        }
+    }
+    
+    @objc private func cancel(_ sender: Any) {
+        tapGesture(tapGestureRecognizer)
+
+    }
+    
+    private func setupGestures() {
+        self.avatarImageView.addGestureRecognizer(self.tapGestureRecognizer)
+        self.tapGestureRecognizer.addTarget(self, action: #selector(self.tapGesture))
+        self.tapGestureRecognizer.view?.isUserInteractionEnabled = true
+    }
+    
     private func setupView() {
         self.addSubview(self.avatarImageView)
         self.addSubview(self.verticalStack)
         self.verticalStack.addArrangedSubview(self.titleLabel)
         self.verticalStack.addArrangedSubview(self.statusLabel)
         self.addSubview(statusButton)
+        self.addSubview(cancelButton)
         
         NSLayoutConstraint.activate([
             self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
@@ -99,8 +150,22 @@ class ProfileHeaderView: UIView {
             self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
             self.statusButton.leadingAnchor.constraint(equalTo: self.avatarImageView.leadingAnchor),
             self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.statusButton.heightAnchor.constraint(equalToConstant: 50)
+            self.statusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            self.cancelButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.cancelButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.cancelButton.heightAnchor.constraint(equalToConstant: 50),
+            self.cancelButton.widthAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    private func setupConstraint() {
+        self.imageTopConstraint = self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16)
+        self.imageLeadingConstraint = self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        self.imageHeightConstraint = self.avatarImageView.heightAnchor.constraint(equalToConstant: 120)
+        self.imageWidthConstraint = self.avatarImageView.widthAnchor.constraint(equalToConstant: 120)
+
+        NSLayoutConstraint.activate([self.imageTopConstraint, imageLeadingConstraint, imageHeightConstraint, imageWidthConstraint].compactMap({$0}))
     }
 
 }
