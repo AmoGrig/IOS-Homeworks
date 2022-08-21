@@ -63,7 +63,7 @@ class ProfileHeaderView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(systemName: "clear.fill"), for: .normal)
         button.alpha = 0
-        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        button.addTarget(ProfileHeaderView.self, action: #selector(cancel), for: .touchUpInside)
         return button
     }()
     

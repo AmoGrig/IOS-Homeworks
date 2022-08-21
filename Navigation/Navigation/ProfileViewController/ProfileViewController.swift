@@ -22,7 +22,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if DEBUG
         self.view.backgroundColor = .systemBackground
+        #else
+        self.view.backgroundColor = .systemGray4
+        #endif
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
