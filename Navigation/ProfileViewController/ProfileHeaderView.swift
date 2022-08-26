@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UIView {
     private lazy var avatarImageView: UIImageView = {
@@ -129,34 +130,44 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupView() {
-        self.addSubview(self.avatarImageView)
-        self.addSubview(self.verticalStack)
-        self.verticalStack.addArrangedSubview(self.titleLabel)
-        self.verticalStack.addArrangedSubview(self.statusLabel)
-        self.addSubview(statusButton)
-        self.addSubview(cancelButton)
+        [avatarImageView, verticalStack, statusButton, cancelButton].forEach {addSubview($0)}
+        [titleLabel, statusLabel].forEach {verticalStack.addArrangedSubview($0)}
         
-        NSLayoutConstraint.activate([
-            self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-            self.avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            
-            self.verticalStack.topAnchor.constraint(equalTo: self.avatarImageView.topAnchor),
-            self.verticalStack.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 20),
-            self.verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.verticalStack.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
-            
-            self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
-            self.statusButton.leadingAnchor.constraint(equalTo: self.avatarImageView.leadingAnchor),
-            self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.statusButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            self.cancelButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            self.cancelButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.cancelButton.heightAnchor.constraint(equalToConstant: 50),
-            self.cancelButton.widthAnchor.constraint(equalToConstant: 50)
-        ])
+        avatarImageView.snp.makeConstraints { imageView in
+            imageView.top.equalToSuperview().inset(16)
+            imageView.left.equalToSuperview().inset(16)
+            imageView.width.equalTo(100)
+            imageView.height.equalTo(100)
+        }
+        
+        verticalStack.snp.makeConstraints {stack in
+            stack.top.equalTo(avatarImageView.snp.top)
+            stack.left.equalTo(avatarImageView.snp.right).inset(-20)
+            stack.right.equalToSuperview().inset(-20)
+            stack.bottom.equalTo(statusButton.snp.top).inset(-34)
+        }
+        
+        statusButton.snp.makeConstraints { button in
+            button.top.equalTo(avatarImageView.snp.bottom).inset(-16)
+            button.left.equalTo(avatarImageView.snp.left)
+            button.right.equalTo(snp.right).inset(16)
+            button.height.equalTo(50)
+        }
+        
+        cancelButton.snp.makeConstraints {canel in
+            canel.top.equalTo(safeAreaLayoutGuide.snp.top)
+            canel.right.equalTo(snp.right).inset(16)
+            canel.height.equalTo(50)
+            canel.width.equalTo(50)
+        }
+        
+//        NSLayoutConstraint.activate([
+//
+//            self.cancelButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+//            self.cancelButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//            self.cancelButton.heightAnchor.constraint(equalToConstant: 50),
+//            self.cancelButton.widthAnchor.constraint(equalToConstant: 50)
+//        ])
     }
     
     private func setupConstraint() {
