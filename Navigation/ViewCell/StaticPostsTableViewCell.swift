@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class StaticPostsTableViewCell: UITableViewCell {
 
@@ -71,12 +72,17 @@ class StaticPostsTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     func setup(with post: Post1) {
+        
+        if let image = UIImage(named: post.image) {
+            let filter = ColorFilter.monochrome(color: CIColor.blue, intensity: 0.3)
+            ImageProcessor().processImage(sourceImage: image, filter: filter) { postImage.image = $0 }
+            
+        }
+        
             self.authorName.text = post.author
             self.descriptionLabel.text = post.description
-            self.postImage.image = UIImage(named: post.image)
             self.likes.text = post.likes
             self.viewsLabel.text = post.views
         }
