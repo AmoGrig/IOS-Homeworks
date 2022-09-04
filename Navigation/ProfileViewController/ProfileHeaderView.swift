@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class ProfileHeaderView: UIView {
-    private lazy var avatarImageView: UIImageView = {
+    lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Aram")
         imageView.clipsToBounds = true
@@ -28,7 +28,7 @@ class ProfileHeaderView: UIView {
         return stack
     }()
     
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.text = "Aram Grigoryan"
@@ -36,7 +36,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-    private lazy var statusLabel: UILabel = {
+    lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.text = "Waiting for something..."
         label.textColor = .gray
@@ -160,14 +160,6 @@ class ProfileHeaderView: UIView {
             canel.height.equalTo(50)
             canel.width.equalTo(50)
         }
-        
-//        NSLayoutConstraint.activate([
-//
-//            self.cancelButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-//            self.cancelButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-//            self.cancelButton.heightAnchor.constraint(equalToConstant: 50),
-//            self.cancelButton.widthAnchor.constraint(equalToConstant: 50)
-//        ])
     }
     
     private func setupConstraint() {

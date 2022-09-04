@@ -24,6 +24,9 @@
 		248A4B292857664500E4F9FA /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248A4B282857664500E4F9FA /* UIImage+Alpha.swift */; };
 		248EF6A12863622100FE2BA1 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248EF6A02863622100FE2BA1 /* PhotosTableViewCell.swift */; };
 		2492FD962844BC6900B22499 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2492FD952844BC6900B22499 /* PostViewController.swift */; };
+		24D6C1F728BF635300C6CD5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6C1F628BF635300C6CD5A /* User.swift */; };
+		24D6C1F928BF676100C6CD5A /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6C1F828BF676100C6CD5A /* CurrentUserService.swift */; };
+		24D6C1FB28C4940300C6CD5A /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6C1FA28C4940300C6CD5A /* TestUserService.swift */; };
 		24F6A02828B90CA4005238C5 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 24F6A02728B90CA4005238C5 /* iOSIntPackage */; };
 		24FB5D3228B23C6000D1BC79 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FB5D3128B23C6000D1BC79 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24FB5D3528B23C6000D1BC79 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FB5D2F28B23C6000D1BC79 /* StorageService.framework */; };
@@ -77,6 +80,9 @@
 		248A4B282857664500E4F9FA /* UIImage+Alpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		248EF6A02863622100FE2BA1 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		2492FD952844BC6900B22499 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		24D6C1F628BF635300C6CD5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		24D6C1F828BF676100C6CD5A /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		24D6C1FA28C4940300C6CD5A /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		24F5D72A28462C2D00DAC2AB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		24FB5D2F28B23C6000D1BC79 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FB5D3128B23C6000D1BC79 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				2438EB882854EF20001147CA /* LogInViewController.swift */,
 				243392A7284B61AC00FC2B7E /* ProfileViewController.swift */,
 				2476C8502869B87200C19DF8 /* PhotosCollectionViewController.swift */,
+				24D6C1F628BF635300C6CD5A /* User.swift */,
+				24D6C1F828BF676100C6CD5A /* CurrentUserService.swift */,
+				24D6C1FA28C4940300C6CD5A /* TestUserService.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -400,11 +409,14 @@
 				243392A8284B61AC00FC2B7E /* ProfileViewController.swift in Sources */,
 				2476C8512869B87200C19DF8 /* PhotosCollectionViewController.swift in Sources */,
 				248A4B292857664500E4F9FA /* UIImage+Alpha.swift in Sources */,
+				24D6C1F928BF676100C6CD5A /* CurrentUserService.swift in Sources */,
 				24634CF428411F85007A6198 /* AppDelegate.swift in Sources */,
 				24862971285CD1E70053D04D /* StaticPostsTableViewCell.swift in Sources */,
+				24D6C1F728BF635300C6CD5A /* User.swift in Sources */,
 				243392A6284B615700FC2B7E /* ProfileHeaderView.swift in Sources */,
 				24862973285CDEF40053D04D /* Post1.swift in Sources */,
 				2477BF9A2843D317009C4F40 /* FeedViewController.swift in Sources */,
+				24D6C1FB28C4940300C6CD5A /* TestUserService.swift in Sources */,
 				241F81C32866042B00B7DE5D /* PhotosCollectionViewCell.swift in Sources */,
 				24137B02284764BF00AA21AF /* InfoViewController.swift in Sources */,
 				24634CF628411F85007A6198 /* SceneDelegate.swift in Sources */,
