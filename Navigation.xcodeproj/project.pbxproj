@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		24137B02284764BF00AA21AF /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24137B01284764BF00AA21AF /* InfoViewController.swift */; };
 		241F81C32866042B00B7DE5D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F81C22866042B00B7DE5D /* PhotosCollectionViewCell.swift */; };
+		24333D8A28C62DC0006C786A /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24333D8928C62DC0006C786A /* Checker.swift */; };
+		24333D8E28CB1E4F006C786A /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24333D8D28CB1E4F006C786A /* LoginInspector.swift */; };
+		24333D9028CCBC0C006C786A /* MyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24333D8F28CCBC0C006C786A /* MyTabBar.swift */; };
+		24333D9228CCDDD4006C786A /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24333D9128CCDDD4006C786A /* LoginFactory.swift */; };
+		24333D9428CCDDFA006C786A /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24333D9328CCDDFA006C786A /* MyLoginFactory.swift */; };
 		243392A6284B615700FC2B7E /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243392A5284B615700FC2B7E /* ProfileHeaderView.swift */; };
 		243392A8284B61AC00FC2B7E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243392A7284B61AC00FC2B7E /* ProfileViewController.swift */; };
 		2438EB892854EF20001147CA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2438EB882854EF20001147CA /* LogInViewController.swift */; };
@@ -63,6 +68,11 @@
 /* Begin PBXFileReference section */
 		24137B01284764BF00AA21AF /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		241F81C22866042B00B7DE5D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		24333D8928C62DC0006C786A /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		24333D8D28CB1E4F006C786A /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		24333D8F28CCBC0C006C786A /* MyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBar.swift; sourceTree = "<group>"; };
+		24333D9128CCDDD4006C786A /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		24333D9328CCDDFA006C786A /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		243392A5284B615700FC2B7E /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		243392A7284B61AC00FC2B7E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2438EB882854EF20001147CA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,27 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		24333D8B28CB1DFB006C786A /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				24D6C1F628BF635300C6CD5A /* User.swift */,
+				24D6C1F828BF676100C6CD5A /* CurrentUserService.swift */,
+				24D6C1FA28C4940300C6CD5A /* TestUserService.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		24333D8C28CB1E1A006C786A /* Logins */ = {
+			isa = PBXGroup;
+			children = (
+				24333D8928C62DC0006C786A /* Checker.swift */,
+				24333D8D28CB1E4F006C786A /* LoginInspector.swift */,
+				24333D9128CCDDD4006C786A /* LoginFactory.swift */,
+				24333D9328CCDDFA006C786A /* MyLoginFactory.swift */,
+			);
+			path = Logins;
+			sourceTree = "<group>";
+		};
 		243392A4284B604000FC2B7E /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +183,8 @@
 				2438EB882854EF20001147CA /* LogInViewController.swift */,
 				243392A7284B61AC00FC2B7E /* ProfileViewController.swift */,
 				2476C8502869B87200C19DF8 /* PhotosCollectionViewController.swift */,
-				24D6C1F628BF635300C6CD5A /* User.swift */,
-				24D6C1F828BF676100C6CD5A /* CurrentUserService.swift */,
-				24D6C1FA28C4940300C6CD5A /* TestUserService.swift */,
+				24333D8B28CB1DFB006C786A /* Users */,
+				24333D8C28CB1E1A006C786A /* Logins */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -184,6 +214,7 @@
 			children = (
 				24634CF328411F85007A6198 /* AppDelegate.swift */,
 				24634CF528411F85007A6198 /* SceneDelegate.swift */,
+				24333D8F28CCBC0C006C786A /* MyTabBar.swift */,
 				2477BF992843D317009C4F40 /* FeedViewController.swift */,
 				2492FD952844BC6900B22499 /* PostViewController.swift */,
 				24137B01284764BF00AA21AF /* InfoViewController.swift */,
@@ -406,10 +437,15 @@
 				248EF6A12863622100FE2BA1 /* PhotosTableViewCell.swift in Sources */,
 				2438EB892854EF20001147CA /* LogInViewController.swift in Sources */,
 				2492FD962844BC6900B22499 /* PostViewController.swift in Sources */,
+				24333D9028CCBC0C006C786A /* MyTabBar.swift in Sources */,
 				243392A8284B61AC00FC2B7E /* ProfileViewController.swift in Sources */,
 				2476C8512869B87200C19DF8 /* PhotosCollectionViewController.swift in Sources */,
+				24333D8E28CB1E4F006C786A /* LoginInspector.swift in Sources */,
 				248A4B292857664500E4F9FA /* UIImage+Alpha.swift in Sources */,
+				24333D9228CCDDD4006C786A /* LoginFactory.swift in Sources */,
 				24D6C1F928BF676100C6CD5A /* CurrentUserService.swift in Sources */,
+				24333D9428CCDDFA006C786A /* MyLoginFactory.swift in Sources */,
+				24333D8A28C62DC0006C786A /* Checker.swift in Sources */,
 				24634CF428411F85007A6198 /* AppDelegate.swift in Sources */,
 				24862971285CD1E70053D04D /* StaticPostsTableViewCell.swift in Sources */,
 				24D6C1F728BF635300C6CD5A /* User.swift in Sources */,

@@ -9,6 +9,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var loginDelegate: LoginViewControllerDelegate?
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -77,32 +79,28 @@ class LogInViewController: UIViewController {
     }()
     
     @objc func loginButtonAction() {
+        guard let isAuthorizationOk = loginDelegate?.check(log: loginField.text!, pass: passField.text!) else { return }
+        
         let profileViewController = ProfileViewController()
         let userService = CurrentUserService()
         let testUserService = TestUserService()
         
-        if let loginText = loginField.text {
-            #if DEBUG
-            let login = userService.data(login: loginText)
-            if login?.login == loginText {
-                self.navigationController?.pushViewController(profileViewController, animated: true)
-            } else {
-                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aram", preferredStyle: .alert)
+        if isAuthorizationOk {
+            if let loginText = loginField.text {
+                #if DEBUG
+                let login = userService.data(login: loginText)
+                #else
+                let login = testUserService.data(login: loginText)
+                #endif
+                if login?.login == loginText {
+                    self.navigationController?.pushViewController(profileViewController, animated: true)
+                }
+        } else {
+                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aram \n Pass: 123", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(action)
                 present(alert, animated: true)
             }
-            #else
-            let login = testUserService.data(login: loginText)
-            if login?.login == loginText {
-                self.navigationController?.pushViewController(profileViewController, animated: true)
-            } else {
-                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aramtest", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(action)
-                present(alert, animated: true)
-            }
-            #endif
         }
     }
 
