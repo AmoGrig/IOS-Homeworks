@@ -8,6 +8,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    private let user: User = CurrentUserService().user
+    
     private lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +103,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = ProfileHeaderView()
+        view.avatarImageView.image = user.avatar
+        view.titleLabel.text = user.fullName
+        view.statusLabel.text = user.status
         
         if section == 0 {
             return view

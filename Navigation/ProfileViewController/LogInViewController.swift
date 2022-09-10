@@ -78,8 +78,32 @@ class LogInViewController: UIViewController {
     
     @objc func loginButtonAction() {
         let profileViewController = ProfileViewController()
+        let userService = CurrentUserService()
+        let testUserService = TestUserService()
         
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        if let loginText = loginField.text {
+            #if DEBUG
+            let login = userService.data(login: loginText)
+            if login?.login == loginText {
+                self.navigationController?.pushViewController(profileViewController, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aram", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(action)
+                present(alert, animated: true)
+            }
+            #else
+            let login = testUserService.data(login: loginText)
+            if login?.login == loginText {
+                self.navigationController?.pushViewController(profileViewController, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aramtest", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(action)
+                present(alert, animated: true)
+            }
+            #endif
+        }
     }
 
     override func viewDidLoad() {
