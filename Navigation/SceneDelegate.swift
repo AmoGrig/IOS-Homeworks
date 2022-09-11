@@ -10,43 +10,44 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let loginInspector = LoginInspector()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = createTabBarController()
+        window?.rootViewController = MyTabBarController(loginFactory: MyLoginFactory())
         window?.makeKeyAndVisible()
         
     }
     
-    func createTabBarController() -> UITabBarController {
-        let tabBarController = UITabBarController()
-        UITabBar.appearance().backgroundColor = .systemGray5
-        UITabBar.appearance().tintColor = .black
-        
-        tabBarController.viewControllers = [createFeedViewController(), createLoginViewController()]
-        
-        return tabBarController
-    }
-    
-    func createFeedViewController() -> UINavigationController {
-        let feedViewController = FeedViewController()
-        feedViewController.title = "Feed"
-        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house.fill"), tag: 0)
-        
-        
-        return UINavigationController(rootViewController: feedViewController)
-    }
-    
-    func createLoginViewController() -> UINavigationController {
-        let loginViewController = LogInViewController()
-        loginViewController.title = "Profile"
-        loginViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
-        
-        return UINavigationController(rootViewController: loginViewController)
-    }
+//    func createTabBarController() -> UITabBarController {
+//        let tabBarController = UITabBarController()
+//        UITabBar.appearance().backgroundColor = .systemGray5
+//        UITabBar.appearance().tintColor = .black
+//
+//        tabBarController.viewControllers = [createFeedViewController(), createLoginViewController()]
+//
+//        return tabBarController
+//    }
+//
+//    func createFeedViewController() -> UINavigationController {
+//        let feedViewController = FeedViewController()
+//        feedViewController.title = "Feed"
+//        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house.fill"), tag: 0)
+//
+//
+//        return UINavigationController(rootViewController: feedViewController)
+//    }
+//
+//    func createLoginViewController() -> UINavigationController {
+//        let loginViewController = LogInViewController()
+//        loginViewController.title = "Profile"
+//        loginViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
+//
+//        return UINavigationController(rootViewController: loginViewController)
+//    }
     
 
     func sceneDidDisconnect(_ scene: UIScene) {

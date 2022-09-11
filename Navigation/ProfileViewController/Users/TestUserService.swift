@@ -10,7 +10,7 @@ import UIKit
 
 
 class TestUserService: UserService {
-    let user1: User = User(login: "Aramtest", fullName: "Aram Grigoryan", avatar: UIImage(named: "MosCity")!, status: "Hi everyone...")
+    let user1: User = User(login: "Aram", fullName: "Aram Grigoryan", avatar: UIImage(named: "MosCity")!, status: "Hi everyone...")
     
     func data(login: String) -> User? {
         guard login == user1.login else {
