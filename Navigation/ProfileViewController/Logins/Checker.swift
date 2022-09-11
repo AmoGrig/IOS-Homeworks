@@ -10,7 +10,7 @@ import Foundation
 class Checker {
     static let shared = Checker()
     
-    private let login = "Arm"
+    private let login = "Aram"
     private let password = "234"
     
     func check(log: String, pass: String) -> Bool {

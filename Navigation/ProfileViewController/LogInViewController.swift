@@ -96,7 +96,7 @@ class LogInViewController: UIViewController {
                     self.navigationController?.pushViewController(profileViewController, animated: true)
                 }
         } else {
-                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aram \n Pass: 123", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Incorrect login", message: "Login: Aram \n Pass: 234", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(action)
                 present(alert, animated: true)
